@@ -1,0 +1,14 @@
+---
+- hosts: all
+  #gather_facts: false
+  tasks:
+    - debug:
+        msg: 
+          - Way 1 The architecture is {{ansible_facts.architecture}}
+          - Way 2 The architecture is {{ansible_architecture}}
+          - Way 1 {{ansible_cmdline.root}}
+          - Way 2 {{ansible_cmdline['root']}}
+          - Partition Size {{ansible_devices.sda.partitions.sda1.size}}
+          - ansible_mount[0].size_total -> {{ansible_mounts[0].size_total}}
+    - debug:
+        var: ansible_facts  

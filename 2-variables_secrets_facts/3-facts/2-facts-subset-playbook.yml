@@ -1,0 +1,17 @@
+---
+- hosts: all
+  #gather_facts: false
+  tasks:
+    - name: Collect only Env facts
+      ansible.builtin.setup:
+        gather_subset:
+          - "env"
+          - "!all"
+          - "!min"
+      register: ansible_custom_facts
+    - name: Print on the Screen "One Way"
+      debug:
+        msg: "{{ ansible_custom_facts }}"
+    - name: Print on the Screen "Second Way"
+      debug:
+        var: ansible_custom_facts

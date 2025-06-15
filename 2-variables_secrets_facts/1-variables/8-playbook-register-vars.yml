@@ -1,0 +1,18 @@
+---
+- hosts: all
+  tasks:
+    - name: Run a command
+      command: echo "Hello, Ansible!"
+      register: command_output
+
+    - name: Print the standard output
+      debug:
+        msg: "Command output: {{ command_output.stdout }}"
+
+    - name: Print the return code
+      debug:
+        msg: "Return code: {{ command_output.rc }}"
+
+    - name: Print the entire variable
+      debug:
+        var: command_output

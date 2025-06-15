@@ -1,0 +1,7 @@
+---
+- name: Playbook -  Using Directories  to Populate  Host and Group Variable "Inventory Variables" 
+  hosts: all  
+  tasks: 
+    - name: This module will print a msg
+      debug:
+         msg: "{{group_host_msg}}" 

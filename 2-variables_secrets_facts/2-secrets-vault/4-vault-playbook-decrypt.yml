@@ -1,0 +1,7 @@
+---
+- name: Playbook for two files which have different vault password
+  hosts: all
+  tasks:
+    - name: This module will Print on Screen
+      debug:
+        msg: Hello World

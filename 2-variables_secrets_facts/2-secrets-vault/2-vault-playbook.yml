@@ -1,0 +1,10 @@
+---
+- name: Playbook for two files which have different vault password
+  hosts: all
+  vars_files: 
+    - var1.yml
+    - var2.yml
+  tasks:
+    - name: This module will Print on Screen
+      debug:
+        msg: My name is {{first_name}} {{last_name}}

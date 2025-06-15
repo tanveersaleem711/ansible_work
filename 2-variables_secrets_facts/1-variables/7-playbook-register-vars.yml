@@ -1,0 +1,23 @@
+---
+- name: Playbook For Register Variables
+  hosts: all
+  tasks:
+    - name: User Add
+      user:
+        name: basit
+        state: present
+      register: userdata
+    - name: Print the registry "debug module will get the value from userdata register on the host machine and store in a variable on control plane and print it"
+      debug:
+        var: userdata
+    - name: Print Single Value from registry
+      debug:
+        var: userdata.name
+    - name: Print Multiple Values from registory
+      debug:
+        msg:
+          - "{{userdata.name}}"
+          - "{{userdata.uid}}}"
+          
+        
+    

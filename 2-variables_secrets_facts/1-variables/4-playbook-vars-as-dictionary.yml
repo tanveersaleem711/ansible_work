@@ -1,0 +1,19 @@
+---
+- name: Playbook Variable --> Have more precedence then inventory
+  hosts: all  
+  vars:
+    users:
+      bjones:
+        first_name: Bob
+        last_name: Jones
+        home_dir: /users/bjones
+      acook:
+        first_name: Anne
+        last_name: Cook
+        home_dir: /users/acook    
+  tasks: 
+    - name: This module will print a msg
+      debug:
+        msg: 
+          - "{{users.bjones.first_name}}"
+          - "{{users['bjones']['last_name']}}" 

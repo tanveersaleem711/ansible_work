@@ -1,0 +1,15 @@
+---
+- name: Playbook For Extra Vars  --> Have more precedence then  all other vars
+  hosts: all  
+  vars: 
+    - message1: Hello from Playbook Vars
+    - message2: |
+                This is line one
+                This is Line Two
+                This is Line Three
+  tasks: 
+    - name: This module will print a msg
+      debug:
+        msg: 
+          - "{{message1}}"
+          - "{{message2.split('\n')}}"

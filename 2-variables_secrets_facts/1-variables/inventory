@@ -1,0 +1,5 @@
+[server]
+Centos8-Node1 message1="Hello From Inventory - Host Level Vars"
+
+[server:vars]
+message2=Hello From Inventory -  Group Level  Var

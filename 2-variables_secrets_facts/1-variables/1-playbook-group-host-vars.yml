@@ -1,0 +1,9 @@
+---
+- name: Playbook For Host Variables and Group Variables "Inventory Variables" 
+  hosts: all  
+  tasks: 
+    - name: This module will print a msg
+      debug:
+         msg: 
+           - "{{message1}}" 
+           - "{{message2}}"

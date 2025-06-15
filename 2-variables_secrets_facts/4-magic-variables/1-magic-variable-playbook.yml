@@ -1,0 +1,10 @@
+---
+- hosts: all
+  gather_facts: true
+  tasks:
+    - name: Print list of network interfaces for demo2
+      ansible.builtin.debug:
+        var: hostvars['Centos8-Node1']['ansible_facts']['interfaces']
+      # var: group_names
+      # var: groups
+      # var: inventory_hostname

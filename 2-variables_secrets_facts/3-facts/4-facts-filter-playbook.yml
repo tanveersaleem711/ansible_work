@@ -1,0 +1,14 @@
+---
+- hosts: all
+  gather_facts: true
+  tasks:
+    - name: Setup module with filter
+      setup:
+        filter: "*ipv4*"
+      register: facts_filter
+    - name: Print filter Facts
+      debug:
+        var: facts_filter
+      #debug:
+      # msg: "{{ ansible_facts }}"
+      #filter: "*ipv4*"
