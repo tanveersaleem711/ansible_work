@@ -1,0 +1,14 @@
+---
+- name: Playbook for Loop
+  hosts: localhost
+  tasks:
+    - shell: echo hello "{{item}}"
+      loop:
+        - khushal
+        - sachin
+      register: result
+    - debug:
+      # var: result
+        msg: "{{item.stdout}}"
+      loop: "{{result.results}}"
+

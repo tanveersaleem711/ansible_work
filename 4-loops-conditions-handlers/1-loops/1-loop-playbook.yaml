@@ -1,0 +1,12 @@
+---
+- name: Playbook for Loop
+  hosts: all
+  tasks:
+    - name: Service Start
+      service:
+        name: "{{ item }}" 
+        state: started
+      loop:
+        - httpd
+        - chronyd
+

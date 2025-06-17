@@ -1,0 +1,15 @@
+---
+- name: Playbook for Loop
+  hosts: all
+  tasks:
+    - name: User Create
+      user:
+        name: "{{ item.name }}"
+        group: "{{ item['group'] }}" 
+        state: present
+      loop: 
+        - name: jane
+          group: root
+        - name: joe
+          group: root
+

@@ -1,0 +1,7 @@
+---
+- name: Playbook for Loop
+  hosts: all
+  tasks:
+    - debug:
+        msg: "{{ item }}"
+      with_file: name.txt    

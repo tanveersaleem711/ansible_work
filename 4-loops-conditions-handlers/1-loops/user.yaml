@@ -1,0 +1,5 @@
+user:
+  - name: jane
+    group: root
+  - name: joe
+    group: root

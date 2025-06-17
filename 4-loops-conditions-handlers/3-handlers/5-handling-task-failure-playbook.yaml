@@ -1,0 +1,13 @@
+---
+- hosts: all
+  tasks:
+    - yum:
+        name: abcd
+        state: present
+      ignore_errors: yes
+      #ignore_errors: true  
+    - debug: 
+        msg: Hello
+    - service:
+        name: httpd
+        state: started

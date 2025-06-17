@@ -1,0 +1,29 @@
+---
+- hosts: all
+  force_handlers: true
+  tasks:
+    # lineinfile module will fail because there is no file a.txt 
+    - lineinfile:
+        path: ./a.txt
+        line: Hello Pakistan
+      ignore_errors: yes
+    - yum:
+        name: httpd
+        state: latest
+      notify: print msg package updated
+    - copy:
+        src: ./index.html
+        dest: /var/www/html
+      notify: restart apache service
+    - service:
+        name: httpd
+        state: started
+  handlers:
+    - name: restart apache service
+      service:
+        name: httpd
+        state: restarted 
+    - name: print msg package updated
+      debug:
+        msg: package httpd is updated
+

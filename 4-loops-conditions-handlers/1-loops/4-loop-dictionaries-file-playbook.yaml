@@ -1,0 +1,17 @@
+---
+- name: Playbook for Loop
+  hosts: all
+  vars_files:
+    - ./user.yaml  
+  tasks:
+    - name: User Create
+      user:
+        name: "{{ item.name }}"
+        group: "{{ item['group'] }}" 
+        state: present
+      loop: "{{ user }}"
+    - name: Add user in Sudo file    
+      lineinfile:
+        path: /etc/sudoers
+        line: "{{ item.name }} ALL=(ALL) NOPASSWD: ALL"
+      loop: "{{ user  }}"

@@ -1,0 +1,11 @@
+---
+- hosts: all
+  gather_facts: yes
+  tasks:
+    - user:
+        name: a4
+      register: result
+      failed_when: result.create_home == true
+        
+    - debug: 
+        var: result

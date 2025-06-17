@@ -1,0 +1,18 @@
+---
+- hosts: all
+  tasks:
+    - yum:
+        name: httpd
+        state: present
+    - copy:
+        src: ./index.html
+        dest: /var/www/html
+      notify: restart apache service
+    - service:
+        name: httpd
+        state: started
+  handlers:
+    - name: restart apache service
+      service:
+        name: httpd
+        state: restarted 
