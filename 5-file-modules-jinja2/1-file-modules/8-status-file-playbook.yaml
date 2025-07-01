@@ -1,0 +1,11 @@
+---
+- name: Playbook for File Modules
+  hosts: all
+  tasks:
+    - name: stat /etc/passwd
+      ansible.builtin.stat:
+        path: /etc/passwd
+      register: results
+    - name: Display stat results
+      debug:
+        var: results

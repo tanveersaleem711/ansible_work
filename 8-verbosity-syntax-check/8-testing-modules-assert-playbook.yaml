@@ -1,0 +1,13 @@
+---
+- name: Playbook For Testing Module Assert
+  hosts: "*"
+  gather_facts: yes
+  tasks:
+    - name: Check if /demo.txt exists
+      ansible.builtin.stat:
+        path: /demo.txt
+      register: lock
+    - name: Fail if /demo.txt  exist
+      ansible.builtin.assert:
+        that:
+          - not lock['stat']['exists']

@@ -1,0 +1,8 @@
+---
+- name: Playbook for File Modules
+  hosts: all
+  tasks:
+    - name: Make sure a file does not exist on managed hosts
+      ansible.builtin.file:
+        dest: file.txt
+        state: absent

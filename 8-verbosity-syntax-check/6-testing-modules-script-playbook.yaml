@@ -1,0 +1,14 @@
+---
+- name: Playbook For Testing Module Script
+  hosts: "*"
+  gather_facts: yes
+  tasks:
+    - name: Run a script with Arguments
+      script: ./create_file.sh tanveer1.txt
+    - name: Run a script with arguments (using 'cmd' parameter)
+      script:
+        cmd: ./create_file.sh  tanveer2.txt
+    - name: Run a script only if file.txt does not exist on the remote node
+      script: ./create_file.sh tanveer3.txt
+      args:
+        creates: /file.txt

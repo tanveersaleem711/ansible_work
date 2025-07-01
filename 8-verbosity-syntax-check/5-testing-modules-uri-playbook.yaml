@@ -1,0 +1,18 @@
+---
+- name: Playbook For Testing Modules URI
+  hosts: "*"
+  gather_facts: yes
+  tasks:
+    - uri: 
+        url: http://www.google.com
+        return_content: true
+      register: apiresponse
+    - debug:
+        var: apiresponse
+    - fail:
+        msg: 'version was not provided'
+      #ignore_errors: yes
+      when: "'version' not in apiresponse.content"
+    - debug:
+        msg: 'Website Accessible'
+      when: apiresponse.status == 200

@@ -1,0 +1,12 @@
+---
+- name: Playbook for File Modules
+  hosts: all
+  tasks:
+    - name: Verify the checksum of a file
+      ansible.builtin.stat:
+        path: /file123.txt
+        checksum_algorithm: md5
+      register: result
+    - ansible.builtin.debug:
+        #var: result
+        msg: "The checksum of the file is {{ result.stat.checksum }}"

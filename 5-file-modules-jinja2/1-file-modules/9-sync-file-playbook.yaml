@@ -1,0 +1,8 @@
+---
+- name: Playbook for File Modules
+  hosts: all
+  tasks:
+    - name: synchronize local file to remote files
+      ansible.posix.synchronize:
+        src: file.txt
+        dest: /file.txt

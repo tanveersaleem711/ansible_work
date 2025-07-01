@@ -1,0 +1,16 @@
+---
+- hosts: "*"
+  tasks:
+    - name: install package
+      yum:
+        name: httpd
+        state: present
+    - name: Start Service
+      service:
+        name: httpd
+        state: started
+        enabled: true
+    - name: copy the file
+      file:
+        path: /abc
+        state: directory

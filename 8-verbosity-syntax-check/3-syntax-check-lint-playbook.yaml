@@ -1,0 +1,8 @@
+---
+- name: Install the Appache
+  hosts: "*"
+  tasks:
+    - name: Install package
+      ansible.builtin.yum:
+        name: httpd
+        state: present

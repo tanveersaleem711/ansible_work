@@ -1,0 +1,3 @@
+---
+- debug:
+    msg: Hello this is from task2.yaml

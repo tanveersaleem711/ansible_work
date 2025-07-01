@@ -1,0 +1,7 @@
+---
+- hosts: all
+  gather_facts: yes
+  tasks:
+    - debug:
+        msg: Hello Server hostname is {{ansible_hostname}}
+        

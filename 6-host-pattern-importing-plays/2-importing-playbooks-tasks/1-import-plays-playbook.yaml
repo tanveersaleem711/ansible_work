@@ -1,0 +1,12 @@
+---
+- hosts: all
+  tasks:
+    - yum:
+        name: httpd
+        state: present
+    - file:
+        path: /abc
+        state: directory
+- import_playbook: 2-sub-playbook.yaml
+
+

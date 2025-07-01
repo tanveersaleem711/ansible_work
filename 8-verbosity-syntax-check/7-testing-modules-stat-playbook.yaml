@@ -1,0 +1,14 @@
+---
+- name: Playbook For Testing Module State
+  hosts: "*"
+  gather_facts: yes
+  tasks:
+    - name: Check if /demo.txt exists
+      ansible.builtin.stat:
+        path: /demo.txt
+      register: lock
+    - debug:
+        var: lock
+    #- name: Fail if the application is running
+    #  ansible.builtin.fail:
+       #when: lock['stat']['exists']

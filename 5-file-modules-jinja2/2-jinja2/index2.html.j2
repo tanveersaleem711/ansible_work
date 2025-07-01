@@ -1,0 +1,16 @@
+{{ ansible_managed }}
+Hello, This is a reply from the server IP {{ ansible_default_ipv4.address}}
+{% if ansible_hostname == "Centos8-Node1" %}
+{{ansible_hostname}}
+{% else %}
+The hostname is not matched
+{% endif %}
+
+{% for user in users if not user =="root" %}
+ User number {{loop.index}} - {{user}}
+{% endfor %}
+
+
+{% for host in groups['server'] %}
+ Hostname is {{host}}
+{% endfor %}

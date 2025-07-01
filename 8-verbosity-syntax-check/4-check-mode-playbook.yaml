@@ -1,0 +1,15 @@
+---
+- name: Playbook For  Check Mode
+  hosts: "*"
+  gather_facts: yes
+  tasks:
+    - name: Copy File
+      file:
+        path: /abcd.txt
+        state: touch
+    - name: task always in check mode
+      ansible.builtin.shell: uname -a
+      check_mode: true 
+    - name: task always runs even in check mode
+      ansible.builtin.shell: uname -a
+      check_mode: false    

@@ -1,0 +1,12 @@
+---
+- name: Playbook for File Modules
+  hosts: all
+  tasks:
+    - name: Touch a file and set permissions
+      ansible.builtin.file:
+        path: /test.txt
+        owner: root
+        group: root
+        mode: 0640
+        state: touch
+   

@@ -1,0 +1,9 @@
+---
+- name: Playbook for File Modules
+  hosts: all
+  tasks:
+    - name: Add a line of text to a file
+      ansible.builtin.lineinfile:
+        path: /file123.txt
+        line: 'Add this line to the file'
+        state: present

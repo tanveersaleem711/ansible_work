@@ -1,0 +1,11 @@
+---
+- name: Playbook for File Modules
+  hosts: all
+  tasks:
+    - name: Add additional lines to a file
+      ansible.builtin.blockinfile:
+        path: /file123.txt
+        block: |
+          First line in the additional block of text
+          Second line in the additional block of text
+        state: present

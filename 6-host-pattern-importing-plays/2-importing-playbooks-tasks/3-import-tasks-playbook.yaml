@@ -1,0 +1,15 @@
+---
+- hosts: all
+  tasks:
+    - name: package install
+      yum:
+        name: httpd
+        state: present
+    - name: copy the file
+      file:
+        path: /abc
+        state: directory
+    - import_tasks: task1.yaml
+    - include_tasks: task2.yaml  
+
+
